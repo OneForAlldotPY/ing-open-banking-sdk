@@ -38,7 +38,7 @@ public class GreetingsAdapter {
     public String getGreetingJWS() {
         try {
             greetingsApi.getApiClient().setMTLSPinning(true).setJwsSigning(true);
-            return greetingsApi.signedGreetingsGet(APPLICATION_FORM_URLENCODED, null, null).getMessage();
+            return greetingsApi.signedGreetingsGet(MediaType.APPLICATION_FORM_URLENCODED, null, null).getMessage();
         } catch (ApiException e) {
             return throwInternalizedException(e.getCode(), "greetings", e);
         }
